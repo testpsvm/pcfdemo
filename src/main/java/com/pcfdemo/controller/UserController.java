@@ -1,5 +1,6 @@
 package com.pcfdemo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,9 +94,20 @@ public class UserController {
 	 * @param name
 	 * @return
 	 */
+	@RequestMapping(path = "/findbynamecontainingnot", method = RequestMethod.GET)
+	public List<User> findByNameContainingNot(@RequestParam String name) {
+		return userRepository.findByNameContainingNot(name);
+	}
+
+	/**
+	 * Returns all users with a name that contains the request parameter
+	 * 
+	 * @param name
+	 * @return
+	 */
 	@RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
-	public List<User> findByNameContains(@RequestParam String name) {
-		return userRepository.findByNameContaining(name);
+	public List<User> findByNameContaining(@RequestParam String name) {
+		return userRepository.findByNameContainingIgnoreCase(name);
 	}
 
 	/**
@@ -107,6 +119,32 @@ public class UserController {
 	@RequestMapping(path = "/findallorderbyname", method = RequestMethod.GET)
 	public List<User> findAllOrderByName() {
 		return userRepository.findAllByOrderByName();
+	}
+
+	@RequestMapping(path = "/insertDemo", method = RequestMethod.GET)
+	public List<User> insertDemo() {
+		final List<User> users = new ArrayList<>();
+		User u1 = new User();
+		u1.setName("Baroud");
+		u1.setFirstName("Bill");
+		users.add(u1);
+		User u2 = new User();
+		u2.setName("Larcenet");
+		u2.setFirstName("Manu");
+		users.add(u2);
+		User u3 = new User();
+		u3.setName("Tergal");
+		u3.setFirstName("Jean-Claude");
+		users.add(u3);
+		User u4 = new User();
+		u4.setName("Bidochon");
+		u4.setFirstName("Robert Eugène Louis");
+		users.add(u4);
+		User u5 = new User();
+		u5.setName("Bidochon (née Galopin)");
+		u5.setFirstName("Raymonde Jeanne Martine");
+		users.add(u5);
+		return userRepository.save(users);
 	}
 
 }
