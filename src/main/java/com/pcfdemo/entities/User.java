@@ -1,25 +1,22 @@
 package com.pcfdemo.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-
-import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class User {
-	
-	
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
-	
-	@NotNull
+
+	@Column(nullable = false, length = 20)
 	private String name;
 
-	@NotNull
+	@Column(nullable = false, length = 20)
 	private String firstName;
 
 	public Long getUserId() {
@@ -46,6 +43,4 @@ public class User {
 		this.firstName = firstName;
 	}
 
-	
-	
 }

@@ -121,6 +121,16 @@ public class UserController {
 		return userRepository.findAllByOrderByName();
 	}
 
+	/**
+	 * Deletes a user by id
+	 * 
+	 * @return
+	 */
+	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+	public void delete(Long id) {
+		userRepository.delete(id);
+	}
+
 	@RequestMapping(path = "/insertDemo", method = RequestMethod.GET)
 	public List<User> insertDemo() {
 		final List<User> users = new ArrayList<>();
