@@ -6,9 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.cloud.cloudfoundry.com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class User {
-
+	
+	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long userId;
