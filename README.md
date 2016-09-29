@@ -1,12 +1,37 @@
-CloudFoundry test application with Spring Tool Suite and continuous integration with concourse ci
+
+This project has been done to test some Spring and Pivotal Cloudfoundry features
 
 
-[Import the Git project into STS](https://github.com/testpsvm/pcfdemo/wiki/1.-Spring-Tool-Suite#import-the-project)
+# Springboot overview 
 
-[Create the CloudFoundry target in STS](https://github.com/testpsvm/pcfdemo/wiki/1.-Spring-Tool-Suite#create-the-cloud-foundry-target)
+[Quick Start](http://projects.spring.io/spring-boot/) [Documentation](http://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/reference/htmlsingle/)
 
-[Create the manifest.yml](https://github.com/testpsvm/pcfdemo/wiki/1.-Spring-Tool-Suite#create--update-the-manifest)
 
-[Installing concourse ci](https://github.com/testpsvm/pcfdemo/wiki/2.-Concourse-ci#installing-concourse-ci)
+##### Spring data jpa 
 
-[Concourse ci settings](https://github.com/testpsvm/pcfdemo/wiki/2.-Concourse-ci#concourse-settings)
+[Quick Start](http://projects.spring.io/spring-data-jpa/) [Documentation](http://docs.spring.io/spring-data/jpa/docs/1.11.0.M1/reference/html/)
+
+
+##### Spring REST
+
+
+
+
+# CloudFoundry integration using STS
+
+
+##### Import project to STS
+
+
+##### CloudFoundry settings
+
+
+##### Deploy application
+
+
+##### Continuous integration using Concourse.ci
+
+
+##### Test application
+
+
