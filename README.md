@@ -92,7 +92,7 @@ private String firstName;
 
 ##### Spring REST
 
-- base on simple annotations to declare `RestController` and `RestMethod` and `path`
+- base on simple annotations to declare `RestController`,  methods and `path`
 ```java
 @RestController
 @RequestMapping("/user")
@@ -101,13 +101,13 @@ public class UserController {
 private UserRepository userRepository;
 @RequestMapping("/help")
 public String ping() {
-		return "User service";
+  return "User service";
 }
 ```
 
 - provide an easy way to get path variable or request parameter
 ```java
- @RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
+@RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
 public List<User> findByNameContaining(@RequestParam String name) {
   return userRepository.findByNameContainingIgnoreCase(name);
 }
@@ -133,4 +133,14 @@ public String delete(@PathVariable Long id) {
 ##### Continuous integration using Concourse.ci
 
 
-##### Test application
+# Test application
+
+[insert data for demo](http://mtpcfdemo.cfapps.io/user/insertDemo)
+
+[find all](http://mtpcfdemo.cfapps.io/user)
+
+[find all order by name](http://mtpcfdemo.cfapps.io/user/findallorderbyname)
+
+[find by id](http://mtpcfdemo.cfapps.io/user/1)
+
+[find by name containing](http://mtpcfdemo.cfapps.io/user/findbynamecontaining?name=b)
