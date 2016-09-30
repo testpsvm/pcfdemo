@@ -140,7 +140,16 @@ Fill your Pivotal settings
 
 ### Deploy application
 
-Drag and
+All information you need to deploy are in the manifest.yml under cloudfoundry folder
+
+When you first deploy the application, STS propose you a default manifest. You can copy it and create your own with the specific settings. In our situation, we have the service `pcfdemo_mysql`.
+It must have been created with the `Pivotal web console`
+
+To deploy the application, you just have to drag and drop the project to your CloudFoundry connection.
+
+And that's all....
+
+After modification of your code, you can `(Re)Start` your application to deploy the changes
 
 ### Continuous integration using Concourse.ci
 
