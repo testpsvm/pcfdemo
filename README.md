@@ -7,6 +7,7 @@ This project has been done to test some Spring and Pivotal Cloudfoundry features
 
 
 - Create stand-alone Spring applications
+
 - Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
 ```java
 package com.pcfdemo;
@@ -20,7 +21,7 @@ public class PcfdemoApplication {
 }
 ```
 
-- Provide opinionated `starter` POMs to simplify your Maven configuration
+- Provide opinionated `starter` POMs to simplify your Maven configuration (`spring-boot-starter-activemq`, `spring-boot-starter-jdbc`, `spring-boot-starter-web`, `spring-boot-starter-mail`, `spring-boot-starter-data-jpa`, ...)
 ```xml
 <parent>
     <groupId>org.springframework.boot</groupId>
@@ -33,14 +34,16 @@ public class PcfdemoApplication {
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
 </dependencies>
 ```
 
-- Automatically configure Spring whenever possible : the `@SpringBootApplication` will search under sub package all spring annotations and uses it to configure application
+- Automatically configure Spring whenever possible : the `@SpringBootApplication` will search under sub package all spring annotations and uses them to configure application (`@Bean`, `@RestController`, `@Configuration`, `@Profile`, ...)
+
 - Provide production-ready features such as metrics, health checks and externalized configuration
+
 - Absolutely no code generation and no requirement for XML configuration
 
 
@@ -49,8 +52,9 @@ public class PcfdemoApplication {
 
 ##### Spring data jpa
 
+Add this starter in the pom.xml `spring-boot-starter-data-jpa`
 
-1.  JPA based on `hibernate` implementation
+-  JPA based on `hibernate` implementation
 
 ```java
 @Entity
@@ -65,21 +69,17 @@ private String firstName;
 ...	 
 ```
 
-2. provides a simple way to request database without code
+- provides a simple way to request database without code
 
-
-  * the `JpaRepository` interface provides all the commons methods to request a database
-
-```java
-List<T> findAll();
-List<T> findAll(Iterable<ID> ids);
-<S extends T> List < S > save(Iterable < S > entities);
-T getOne(ID id);
-...
-```
-
-  * developers can create custom queries based on naming [conventions](http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) or on `JPQL`
-
+  - the `JpaRepository` interface provides all the commons methods to request a database
+  ```java
+  List<T> findAll();
+  List<T> findAll(Iterable<ID> ids);
+  <S extends T> List < S > save(Iterable < S > entities);
+  T getOne(ID id);
+  ...
+  ```
+  - developers can create custom queries based on naming [conventions](http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) or on `JPQL`
 ```java
 public List<User> findByNameContainingIgnoreCase(final String name);
 public List<User> findAllByOrderByName();
