@@ -30,7 +30,7 @@ This project has been done to test some Spring and Pivotal Cloudfoundry features
 
   * the `JpaRepository` interface provides all the commons methods to request a database
 
-```
+```java
 List<T> findAll();
 List<T> findAll(Iterable<ID> ids);
 <S extends T> List < S > save(Iterable < S > entities);
@@ -40,7 +40,7 @@ T getOne(ID id);
 
   * developers can create custom queries based on naming [conventions](http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) or on `JPQL` 
 
-```
+```java
 public List<User> findByNameContainingIgnoreCase(final String name);
 public List<User> findAllByOrderByName();
 @Query("select u from User u where u.name not like %?1%")
