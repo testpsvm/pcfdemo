@@ -71,7 +71,7 @@ private String firstName;
 
 - provides a simple way to request database without code
 
-  - the `JpaRepository` interface provides all the commons methods to request a database
+  - the [JpaRepository](http://docs.spring.io/spring-data/jpa/docs/1.3.0.RELEASE/reference/html/jpa.repositories.html) interface provides all the commons methods to request a database
   ```java
   List<T> findAll();
   List<T> findAll(Iterable<ID> ids);
@@ -81,10 +81,10 @@ private String firstName;
   ```
   - developers can create custom queries based on naming [conventions](http://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation) or on `JPQL`
 ```java
-public List<User> findByNameContainingIgnoreCase(final String name);
-public List<User> findAllByOrderByName();
-@Query("select u from User u where u.name not like %?1%")
-public List<User> findByNameContainingNot(final String name);
+  public List<User> findByNameContainingIgnoreCase(final String name);
+  public List<User> findAllByOrderByName();
+  @Query("select u from User u where u.name not like %?1%")
+  public List<User> findByNameContainingNot(final String name);
 ```
 
 [Quick Start](http://projects.spring.io/spring-data-jpa/) [Documentation](http://docs.spring.io/spring-data/jpa/docs/1.11.0.M1/reference/html/)
@@ -92,8 +92,31 @@ public List<User> findByNameContainingNot(final String name);
 
 ##### Spring REST
 
+- base on simple annotations to declare `RestController` and `RestMethod` and `path`
+```java
+@RestController
+@RequestMapping("/user")
+public class UserController {
+@Autowired
+private UserRepository userRepository;
+@RequestMapping("/help")
+public String ping() {
+		return "User service";
+}
+```
 
-
+- provide an easy way to get path variable or request parameter
+```java
+ @RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
+public List<User> findByNameContaining(@RequestParam String name) {
+  return userRepository.findByNameContainingIgnoreCase(name);
+}
+@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+public String delete(@PathVariable Long id) {
+  userRepository.delete(id);
+  return "ok";
+}
+```
 
 # CloudFoundry integration using STS
 
