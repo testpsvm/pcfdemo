@@ -89,7 +89,7 @@ public class UserController {
 	}
 
 	/**
-	 * Returns all usesr with a name that contains the request parameter
+	 * Returns all users with a name that contains the request parameter
 	 * 
 	 * @param name
 	 * @return
@@ -127,8 +127,9 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-	public void delete(Long id) {
+	public String delete(@PathVariable Long id) {
 		userRepository.delete(id);
+		return "ok";
 	}
 
 	@RequestMapping(path = "/insertDemo", method = RequestMethod.GET)

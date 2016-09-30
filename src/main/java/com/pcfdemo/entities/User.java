@@ -13,10 +13,10 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 30)
 	private String name;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 30)
 	private String firstName;
 
 	public Long getUserId() {
