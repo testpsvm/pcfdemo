@@ -5,7 +5,6 @@ This project has been done to test some Spring and Pivotal Cloudfoundry features
 # Springboot overview
 
 
-
 - Create stand-alone Spring applications
 
 - Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
