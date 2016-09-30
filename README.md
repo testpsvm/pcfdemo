@@ -44,6 +44,11 @@ public class PcfdemoApplication {
 
 - Provide production-ready features such as metrics, health checks and externalized configuration
 
+  We can use `application-<profile>.properties` files to change some default settings
+```
+spring.jpa.hibernate.ddl-auto=create-drop
+server.port=8888
+```
 - Absolutely no code generation and no requirement for XML configuration
 
 
@@ -85,6 +90,16 @@ private String firstName;
   public List<User> findAllByOrderByName();
   @Query("select u from User u where u.name not like %?1%")
   public List<User> findByNameContainingNot(final String name);
+```
+
+- can be customized using the `application-<profile>.properties` files
+```
+ spring.jpa.show-sql=
+ spring.jpa.database=
+ spring.jpa.generate-ddl=
+ spring.jpa.hibernate.naming.implicit-strategy=
+ spring.jpa.properties.xxx=
+ ...
 ```
 
 [Quick Start](http://projects.spring.io/spring-data-jpa/) [Documentation](http://docs.spring.io/spring-data/jpa/docs/1.11.0.M1/reference/html/)
