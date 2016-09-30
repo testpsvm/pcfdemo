@@ -120,9 +120,10 @@ public String delete(@PathVariable Long id) {
 
 # CloudFoundry integration using STS
 
-First of all, you need to create an account on Pivotal.
-Then you will be able to test the Pivotal Cloudfoundry.
-All tests have been done using Spring Tool Suite (STS).
+First of all, you need to create an account on [Pivotal](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/introduction).
+
+All tests have been done using [Spring Tool Suite](https://spring.io/tools) (STS).
+
 Download the project from GitHub and import it in your STS Workspace.
 
 ##### CloudFoundry Initialization
@@ -135,10 +136,11 @@ Configure a new connection (button `+`)
 
 Fill your Pivotal settings
 
-![Settings](./images/sts-pcf-settings.png)
+![Settings](images/sts-pcf-settings.png)
 
 ##### Deploy application
 
+Drag and
 
 ##### Continuous integration using Concourse.ci
 
