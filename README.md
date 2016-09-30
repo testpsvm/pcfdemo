@@ -50,7 +50,7 @@ public class PcfdemoApplication {
 [Quick Start](http://projects.spring.io/spring-boot/) [Documentation](http://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/reference/htmlsingle/)
 
 
-##### Spring data jpa
+### Spring data jpa
 
 Add this starter in the pom.xml `spring-boot-starter-data-jpa`
 
@@ -90,7 +90,7 @@ private String firstName;
 [Quick Start](http://projects.spring.io/spring-data-jpa/) [Documentation](http://docs.spring.io/spring-data/jpa/docs/1.11.0.M1/reference/html/)
 
 
-##### Spring REST
+### Spring REST
 
 - base on simple annotations to declare `RestController`,  methods and `path`
 ```java
@@ -126,9 +126,9 @@ All tests have been done using [Spring Tool Suite](https://spring.io/tools) (STS
 
 Download the project from GitHub and import it in your STS Workspace.
 
-##### CloudFoundry Initialization
+### CloudFoundry Initialization
 
-##### CloudFoundry settings in STS
+### CloudFoundry settings in STS
 
 Open the Boot Dashboard view in STS `Windows > Show views > Spring > Boot Dashboard`
 
@@ -138,11 +138,11 @@ Fill your Pivotal settings
 
 ![Settings](images/sts-pcf-settings.png)
 
-##### Deploy application
+### Deploy application
 
 Drag and
 
-##### Continuous integration using Concourse.ci
+### Continuous integration using Concourse.ci
 
 
 # Test application
