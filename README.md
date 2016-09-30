@@ -92,6 +92,8 @@ private String firstName;
 
 ### Spring REST
 
+Add this starter in the pom.xml `spring-boot-starter-web`
+
 - base on simple annotations to declare `RestController`,  methods and `path`
 ```java
 @RestController
@@ -140,7 +142,7 @@ Fill your Pivotal settings
 
 ### Deploy application
 
-All information you need to deploy are in the manifest.yml under cloudfoundry folder
+All information you need to deploy are in the `manifest.yml` under `cloudfoundry` folder
 
 When you first deploy the application, STS propose you a default manifest. You can copy it and create your own with the specific settings. In our situation, we have the service `pcfdemo_mysql`.
 It must have been created with the `Pivotal web console`
