@@ -28,7 +28,7 @@ public class UserController {
 	 */
 	@RequestMapping("/help")
 	public String ping() {
-		return "User service CI2";
+		return "User service CI3";
 	}
 
 	/**
