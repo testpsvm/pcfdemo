@@ -123,10 +123,12 @@ public String ping() {
 
 - provide an easy way to get path variable or request parameter
 ```java
+// URL: /user/findbynamecontaining?name=frodo
 @RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
 public List<User> findByNameContaining(@RequestParam String name) {
   return userRepository.findByNameContainingIgnoreCase(name);
 }
+// URL: /user/1
 @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
 public String delete(@PathVariable Long id) {
   userRepository.delete(id);
@@ -134,7 +136,7 @@ public String delete(@PathVariable Long id) {
 }
 ```
 
-##### Test Spring REST Controller
+#### Test Spring REST Controller
 
 Create a test class with these annotations
 
@@ -180,9 +182,7 @@ __Exemple with a JSon response__
 ```java
 @Test
 public void testFindAll() {
-	final RestTemplate restTemplate = this.testRestTemplate.getRestTemplate();
-	restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-	final User[] all = restTemplate.getForObject("/user", User[].class);
+	final User[] all = this.testRestTemplate.getForObject("/user", User[].class);
 	assertArrayEquals(initializationUsers, all);
 }
 ```
@@ -192,11 +192,12 @@ __Exemple with a request parameter__
 @Test
 public void testFindByNameContaining() {
 	final String subName = "b";
-	final RestTemplate restTemplate = this.testRestTemplate.getRestTemplate();
-	restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-	final User[] all = restTemplate.getForObject("/user/findbynamecontaining?name={name}", User[].class, subName);
+	final User[] all = this.testRestTemplate.getForObject("/user/findbynamecontaining?name={name}", User[].class,
+			subName);
 	for (int i = 0; i < all.length; i++) {
-		assertTrue("Error with " + all[i].getName(), all[i].getName() != null && (all[i].getName().contains(subName.toLowerCase())||all[i].getName().contains(subName.toUpperCase())));
+		assertTrue("Error with " + all[i].getName(),
+				all[i].getName() != null && (all[i].getName().contains(subName.toLowerCase())
+						|| all[i].getName().contains(subName.toUpperCase())));
 	}
 }
 ```
