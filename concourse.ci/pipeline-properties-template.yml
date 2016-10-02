@@ -1,5 +1,7 @@
 github-uri: <https://github.com/xxx/xxx.git>
 github-branch: master
+github-username: <username>
+github-password: <username>
 cf-api: https://api.run.pivotal.io
 cf-username: <username>
 cf-password: <password>

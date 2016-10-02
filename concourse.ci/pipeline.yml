@@ -6,7 +6,7 @@ resources:
       branch: {{github-branch}}
       username: {{github-username}}
       password: {{github-password}}
-- name: pcfdemo-app
+- name: pcfdemo-cf
   type: cf
   source:
       api: {{cf-api}}
@@ -17,12 +17,12 @@ resources:
       skip_cert_check: true
 
 jobs:
-- name: test-app
+- name: pcfdemo-deploy
   plan:
   - get: pcfdemo-git
     trigger: true
   - task: tests
     file: cloudfoundry/tasks/build.yml
-  - put: pcfdemo-app
+  - put: pcfdemo-cf
     params:
       manifest: cloudfoundry/manifest.yml
