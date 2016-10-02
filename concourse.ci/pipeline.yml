@@ -4,6 +4,8 @@ resources:
   source:
       uri: {{github-uri}}
       branch: {{github-branch}}
+      username: {{github-username}}
+      password: {{github-password}}
 - name: pcfdemo-app
   type: cf
   source:
