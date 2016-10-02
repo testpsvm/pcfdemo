@@ -1,0 +1,8 @@
+github-uri: <https://github.com/xxx/xxx.git>
+github-branch: master
+cf-api: https://api.run.pivotal.io
+cf-username: <username>
+cf-password: <password>
+cf-org: <pcf-org>
+cf-space: <pcf-sapce>
+cf-manifest-host: <manifest-host>

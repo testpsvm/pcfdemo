@@ -1,0 +1,13 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ruby
+    tag: 2.3.0
+
+inputs:
+- name: pcfdemo-git
+
+run:
+  path: concourse.ci/tasks/build.sh
