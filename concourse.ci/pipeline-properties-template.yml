@@ -7,4 +7,3 @@ cf-username: <username>
 cf-password: <password>
 cf-org: <pcf-org>
 cf-space: <pcf-sapce>
-cf-manifest-host: <manifest-host>
