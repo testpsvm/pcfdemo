@@ -21,6 +21,8 @@ jobs:
   plan:
   - get: pcfdemo-git
     trigger: true
+  - task: tests
+    file: cloudfoundry/tasks/build.yml
   - put: pcfdemo-app
     params:
       manifest: cloudfoundry/manifest.yml
