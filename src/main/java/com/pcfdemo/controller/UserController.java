@@ -132,6 +132,25 @@ public class UserController {
 		return "ok";
 	}
 
+	/**
+	 * Deletes all users
+	 * 
+	 * @return
+	 */
+	@RequestMapping(path = "", method = RequestMethod.DELETE)
+	public String delete() {
+		userRepository.deleteAll();
+		return "ok";
+	}
+
+	/**
+	 * Inserts data for test<br>
+	 * This method is used for doing some test from the GitHub readme.MD
+	 * page<br>
+	 * It should not belong in a true application
+	 * 
+	 * @return
+	 */
 	@RequestMapping(path = "/insertDemo", method = RequestMethod.GET)
 	public List<User> insertDemo() {
 		final List<User> users = new ArrayList<>();
@@ -156,6 +175,20 @@ public class UserController {
 		u5.setFirstName("Raymonde Jeanne Martine");
 		users.add(u5);
 		return userRepository.save(users);
+	}
+
+	/**
+	 * Deletes all users<br>
+	 * This method is used for doing some test from the GitHub readme.MD
+	 * page<br>
+	 * It should not belong in a true application
+	 * 
+	 * @return
+	 */
+	@RequestMapping(path = "/deleteAll", method = RequestMethod.GET)
+	public String deleteAll() {
+		userRepository.deleteAll();
+		return "ok";
 	}
 
 }

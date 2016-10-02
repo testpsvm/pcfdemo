@@ -134,6 +134,73 @@ public String delete(@PathVariable Long id) {
 }
 ```
 
+##### Test Spring REST Controller
+
+Create a test class with these annotations
+
+```java
+@SpringBootTest
+```
+From the official [documentation](http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html)
+
+Annotation that can be specified on a test class that runs Spring Boot based tests. Provides the following features over and above the regular Spring TestContext Framework:
+
+- Uses SpringBootContextLoader as the default ContextLoader when no specific @ContextConfiguration(loader=...) is defined.
+- Automatically searches for a @SpringBootConfiguration when nested @Configuration is not used, and no explicit classes are specified.
+- Allows custom Environment properties to be defined using the properties attribute.
+- Provides support for different webEnvironment modes, including the ability to start a fully running container listening on a defined or random port.
+- Registers a TestRestTemplate bean for use in web tests that are using a fully running container.
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class UserControllerTests {
+
+	@Autowired
+	private TestRestTemplate testRestTemplate;
+	private User[] initializationUsers = null;
+
+	@Before
+	public void setup() {
+		initializationUsers = this.testRestTemplate.getForObject("/user/insertDemo", User[].class);
+	}
+  ...
+```
+
+__Exemple with a String response__
+```java
+@Test
+public void testPing() {
+	final ResponseEntity<String> responseEntity = this.testRestTemplate.getForEntity("/user/help", String.class);
+	assert (responseEntity.getBody().equals("User service"));
+}
+```
+
+__Exemple with a JSon response__
+```java
+@Test
+public void testFindAll() {
+	final RestTemplate restTemplate = this.testRestTemplate.getRestTemplate();
+	restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+	final User[] all = restTemplate.getForObject("/user", User[].class);
+	assertArrayEquals(initializationUsers, all);
+}
+```
+
+__Exemple with a request parameter__
+```java
+@Test
+public void testFindByNameContaining() {
+	final String subName = "b";
+	final RestTemplate restTemplate = this.testRestTemplate.getRestTemplate();
+	restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+	final User[] all = restTemplate.getForObject("/user/findbynamecontaining?name={name}", User[].class, subName);
+	for (int i = 0; i < all.length; i++) {
+		assertTrue("Error with " + all[i].getName(), all[i].getName() != null && (all[i].getName().contains(subName.toLowerCase())||all[i].getName().contains(subName.toUpperCase())));
+	}
+}
+```
+
 # CloudFoundry integration using STS
 
 First of all, you need to create an account on [Pivotal](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry/introduction).
@@ -173,6 +240,8 @@ After modification of your code, you can `(Re)Start` your application to deploy 
 # Test application
 
 [insert data for demo](http://mtpcfdemo.cfapps.io/user/insertDemo)
+
+[delete all data](http://mtpcfdemo.cfapps.io/user/deleteAll)
 
 [find all](http://mtpcfdemo.cfapps.io/user)
 
