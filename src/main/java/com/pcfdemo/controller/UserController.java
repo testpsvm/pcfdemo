@@ -52,7 +52,7 @@ public class UserController {
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping(path = "", method = RequestMethod.PUT)
+	@RequestMapping(path = "", method = RequestMethod.POST)
 	public User insert(@RequestBody User user) {
 		user.setUserId(null);
 		return userRepository.save(user);
@@ -65,7 +65,7 @@ public class UserController {
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping(path = "/all", method = RequestMethod.PUT)
+	@RequestMapping(path = "/all", method = RequestMethod.POST)
 	public List<User> insertAll(@RequestBody List<User> users) {
 		users.stream().forEach(x -> x.setUserId(null));
 		return userRepository.save(users);
@@ -78,7 +78,7 @@ public class UserController {
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping(path = "/{id}", method = RequestMethod.POST)
+	@RequestMapping(path = "/{id}", method = RequestMethod.PUT)
 	public User update(@PathVariable Long id, @RequestBody User user) {
 		user.setUserId(id);
 		return userRepository.save(user);

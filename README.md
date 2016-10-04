@@ -240,14 +240,14 @@ After modification of your code, you can `(Re)Start` your application to deploy 
 
 # Test application
 
-[insert data for demo](http://mtpcfdemo.cfapps.io/user/insertDemo)
+[insert data for demo](http://pcfdemo.cfapps.io/user/insertDemo)
 
-[delete all data](http://mtpcfdemo.cfapps.io/user/deleteAll)
+[delete all data](http://pcfdemo.cfapps.io/user/deleteAll)
 
-[find all](http://mtpcfdemo.cfapps.io/user)
+[find all](http://pcfdemo.cfapps.io/user)
 
-[find all order by name](http://mtpcfdemo.cfapps.io/user/findallorderbyname)
+[find all order by name](http://pcfdemo.cfapps.io/user/findallorderbyname)
 
-[find by id](http://mtpcfdemo.cfapps.io/user/1)
+[find by id](http://pcfdemo.cfapps.io/user/1)
 
-[find by name containing](http://mtpcfdemo.cfapps.io/user/findbynamecontaining?name=b)
+[find by name containing](http://pcfdemo.cfapps.io/user/findbynamecontaining?name=b)
