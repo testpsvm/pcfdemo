@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +27,10 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping("/help")
-	public String ping() {
-		return "User service";
+	public RestResponse ping() {
+		return new RestResponse("User service");
 	}
 
 	/**
@@ -37,6 +39,7 @@ public class UserController {
 	 * @param id
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public User findById(@PathVariable Long id) {
 		return userRepository.findOne(id);
@@ -48,6 +51,7 @@ public class UserController {
 	 * @param user
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "", method = RequestMethod.PUT)
 	public User insert(@RequestBody User user) {
 		user.setUserId(null);
@@ -60,6 +64,7 @@ public class UserController {
 	 * @param user
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/all", method = RequestMethod.PUT)
 	public List<User> insertAll(@RequestBody List<User> users) {
 		users.stream().forEach(x -> x.setUserId(null));
@@ -72,6 +77,7 @@ public class UserController {
 	 * @param user
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/{id}", method = RequestMethod.POST)
 	public User update(@PathVariable Long id, @RequestBody User user) {
 		user.setUserId(id);
@@ -83,6 +89,7 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "", method = RequestMethod.GET)
 	public List<User> findAll() {
 		return userRepository.findAll();
@@ -94,6 +101,7 @@ public class UserController {
 	 * @param name
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/findbynamecontainingnot", method = RequestMethod.GET)
 	public List<User> findByNameContainingNot(@RequestParam String name) {
 		return userRepository.findByNameContainingNot(name);
@@ -105,6 +113,7 @@ public class UserController {
 	 * @param name
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/findbynamecontaining", method = RequestMethod.GET)
 	public List<User> findByNameContaining(@RequestParam String name) {
 		return userRepository.findByNameContainingIgnoreCase(name);
@@ -116,6 +125,7 @@ public class UserController {
 	 * @param name
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/findallorderbyname", method = RequestMethod.GET)
 	public List<User> findAllOrderByName() {
 		return userRepository.findAllByOrderByName();
@@ -126,10 +136,11 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable Long id) {
+	public RestResponse delete(@PathVariable Long id) {
 		userRepository.delete(id);
-		return "ok";
+		return new RestResponse("delete by id " + id + " ok");
 	}
 
 	/**
@@ -137,10 +148,11 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "", method = RequestMethod.DELETE)
-	public String delete() {
+	public RestResponse delete() {
 		userRepository.deleteAll();
-		return "ok";
+		return new RestResponse("delete all");
 	}
 
 	/**
@@ -151,6 +163,7 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/insertDemo", method = RequestMethod.GET)
 	public List<User> insertDemo() {
 		final List<User> users = new ArrayList<>();
@@ -185,10 +198,11 @@ public class UserController {
 	 * 
 	 * @return
 	 */
+	@CrossOrigin
 	@RequestMapping(path = "/deleteAll", method = RequestMethod.GET)
-	public String deleteAll() {
+	public RestResponse deleteAll() {
 		userRepository.deleteAll();
-		return "ok";
+		return new RestResponse("delete all");
 	}
 
 }
