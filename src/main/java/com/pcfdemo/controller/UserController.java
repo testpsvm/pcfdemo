@@ -22,7 +22,6 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
-
 	/**
 	 * Returns all users
 	 * 
@@ -33,7 +32,7 @@ public class UserController {
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-	
+
 	/**
 	 * Returns a single using the id from the url path
 	 * 
@@ -46,8 +45,6 @@ public class UserController {
 		return userRepository.findOne(id);
 	}
 
-
-	
 	/**
 	 * Inserts a user using a Json description
 	 * 
@@ -196,8 +193,6 @@ public class UserController {
 		userRepository.deleteAll();
 		return new RestResponse("delete all");
 	}
-
-	
 
 	/**
 	 * Returns the service name
