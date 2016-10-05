@@ -22,17 +22,18 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
+
 	/**
-	 * Returns the service name
+	 * Returns all users
 	 * 
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping("/help")
-	public RestResponse ping() {
-		return new RestResponse("User service");
+	@RequestMapping(path = "", method = RequestMethod.GET)
+	public List<User> findAll() {
+		return userRepository.findAll();
 	}
-
+	
 	/**
 	 * Returns a single using the id from the url path
 	 * 
@@ -45,6 +46,8 @@ public class UserController {
 		return userRepository.findOne(id);
 	}
 
+
+	
 	/**
 	 * Inserts a user using a Json description
 	 * 
@@ -82,17 +85,6 @@ public class UserController {
 	public User update(@PathVariable Long id, @RequestBody User user) {
 		user.setUserId(id);
 		return userRepository.save(user);
-	}
-
-	/**
-	 * Returns all users
-	 * 
-	 * @return
-	 */
-	@CrossOrigin
-	@RequestMapping(path = "", method = RequestMethod.GET)
-	public List<User> findAll() {
-		return userRepository.findAll();
 	}
 
 	/**
@@ -203,6 +195,19 @@ public class UserController {
 	public RestResponse deleteAll() {
 		userRepository.deleteAll();
 		return new RestResponse("delete all");
+	}
+
+	
+
+	/**
+	 * Returns the service name
+	 * 
+	 * @return
+	 */
+	@CrossOrigin
+	@RequestMapping("/help")
+	public RestResponse ping() {
+		return new RestResponse("User service");
 	}
 
 }
