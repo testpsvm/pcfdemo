@@ -28,7 +28,7 @@ public class UserController {
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping(path = "", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
@@ -52,7 +52,7 @@ public class UserController {
 	 * @return
 	 */
 	@CrossOrigin
-	@RequestMapping(path = "", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public User insert(@RequestBody User user) {
 		user.setUserId(null);
 		return userRepository.save(user);
