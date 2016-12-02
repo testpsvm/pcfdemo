@@ -38,11 +38,11 @@ public class UserControllerTests {
 		this.testRestTemplate.delete("/user", String.class);
 	}
 
-	@Test
-	public void testPing() {
-		final ResponseEntity<String> responseEntity = this.testRestTemplate.getForEntity("/user/help", String.class);
-		assert (responseEntity.getBody().equals("User service"));
-	}
+	//@Test
+	//public void testPing() {
+	//	final ResponseEntity<String> responseEntity = this.testRestTemplate.getForEntity("/user/help", String.class);
+	//	assert (responseEntity.getBody().equals("User service"));
+	//}
 
 	@Test
 	public void testFindAll() {
