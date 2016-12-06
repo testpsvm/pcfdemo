@@ -19,7 +19,7 @@ public class PcfdemoApplication {
 	}
 }
 ```
-#HSLIDE
+#VSLIDE
 
 - Provide opinionated `starter` POMs to simplify your Maven configuration (`spring-boot-starter-activemq`, `spring-boot-starter-jdbc`, `spring-boot-starter-web`, `spring-boot-starter-mail`, `spring-boot-starter-data-jpa`, ...)
 ```xml
