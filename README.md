@@ -19,6 +19,7 @@ public class PcfdemoApplication {
 	}
 }
 ```
+#HSLIDE
 
 - Provide opinionated `starter` POMs to simplify your Maven configuration (`spring-boot-starter-activemq`, `spring-boot-starter-jdbc`, `spring-boot-starter-web`, `spring-boot-starter-mail`, `spring-boot-starter-data-jpa`, ...)
 ```xml
@@ -38,6 +39,7 @@ public class PcfdemoApplication {
     </dependency>
 </dependencies>
 ```
+#HSLIDE
 
 - Automatically configure Spring whenever possible : the `@SpringBootApplication` will search under sub package all spring annotations and uses them to configure application (`@Bean`, `@RestController`, `@Configuration`, `@Profile`, ...)
 
@@ -53,6 +55,7 @@ server.port=8888
 
 [Quick Start](http://projects.spring.io/spring-boot/) [Documentation](http://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/reference/htmlsingle/)
 
+#HSLIDE
 
 ### Spring data jpa
 
@@ -72,6 +75,7 @@ private String name;
 private String firstName;
 ...	 
 ```
+#HSLIDE
 
 - provides a simple way to request database without code
 
@@ -103,6 +107,7 @@ private String firstName;
 
 [Quick Start](http://projects.spring.io/spring-data-jpa/) [Documentation](http://docs.spring.io/spring-data/jpa/docs/1.11.0.M1/reference/html/)
 
+#HSLIDE
 
 ### Spring REST
 
